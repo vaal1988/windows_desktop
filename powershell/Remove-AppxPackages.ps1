@@ -1,4 +1,3 @@
-
 Get-AppxProvisionedPackage -Online | Where { `
 $_.DisplayName -NotMatch 'Microsoft.StorePurchaseApp' -and `
 $_.DisplayName -NotMatch 'Microsoft.WindowsStore' -and `
