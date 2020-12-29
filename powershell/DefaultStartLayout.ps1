@@ -10,3 +10,4 @@ Set-Content -Path C:\Users\Default\AppData\Local\Microsoft\Windows\Shell\LayoutM
 </LayoutModificationTemplate>
 '
 
+
