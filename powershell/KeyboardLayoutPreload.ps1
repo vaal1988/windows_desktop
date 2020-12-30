@@ -5,7 +5,7 @@ Set-RegistryKey -Key 'HKLM\DEFAULT\SOFTWARE\Microsoft\Windows\CurrentVersion\Run
 REG UNLOAD HKLM\DEFAULT
 
 
-$regPath  = "HKLM\DEFAULT\SOFTWARE\Microsoft\Windows\CurrentVersion\RunOnce"
+$regPath  = "HKLM:\DEFAULT\SOFTWARE\Microsoft\Windows\CurrentVersion\RunOnce"
 $regKey   = "LanguageList"
 $regValue = 'powershell.exe -command "Set-WinUserLanguageList -LanguageList en-US, ru, uk -Force"'
  
