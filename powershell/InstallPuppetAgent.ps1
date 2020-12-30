@@ -6,3 +6,10 @@ Start-Process msiexec.exe -Wait -ArgumentList "/qn /norestart /i C:\puppet-agent
 Stop-Service -Name 'puppet'
 Set-Service -Name 'puppet' -StartupType disabled
 
+
+# C:\ProgramData\PuppetLabs\puppet\etc\puppet.conf
+# [main]
+# server=puppet
+# environment=environment
+# autoflush=true
+# manage_internal_file_permissions=false
