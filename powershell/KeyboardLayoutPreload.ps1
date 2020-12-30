@@ -1,5 +1,5 @@
 REG LOAD HKLM\DEFAULT C:\Users\Default\NTUSER.DAT
 
-reg add "HKLM\DEFAULT\SOFTWARE\Microsoft\Windows\CurrentVersion\RunOnce" /v LanguageList /t REG_SZ /d "C:\WINDOWS\system32\WindowsPowerShell\v1.0\powershell.exe -command 'Set-WinUserLanguageList -LanguageList en-US, ru, uk -Force'" /f
+Set-RegistryKey -Key 'HKLM\DEFAULT\SOFTWARE\Microsoft\Windows\CurrentVersion\RunOnce' -Name 'LanguageList' -Value 'powershell.exe -command "Set-WinUserLanguageList -LanguageList en-US, ru, uk -Force"' -Type String -ContinueOnError:$True
 
 REG UNLOAD HKLM\DEFAULT
