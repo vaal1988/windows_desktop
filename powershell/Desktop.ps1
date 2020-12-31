@@ -12,3 +12,4 @@ reg add "HKLM\DEFAULT\Software\Microsoft\Windows\CurrentVersion\Search" /v Searc
 reg add "HKLM\DEFAULT\Software\Microsoft\Windows\CurrentVersion\PenWorkspace" /v PenWorkspaceButtonDesiredVisibility /t REG_DWORD /d "0" /f
 
 REG UNLOAD HKLM\DEFAULT
+

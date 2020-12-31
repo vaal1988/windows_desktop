@@ -13,3 +13,4 @@ $_.Name -NotMatch 'Microsoft.WindowsStore' -and `
 $_.Name -NotMatch 'Microsoft.Windows.Photos' -and `
 $_.Name -NotMatch 'Microsoft.WindowsCalculator' `
 } | Remove-AppxPackage -AllUsers
+
