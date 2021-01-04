@@ -10,7 +10,7 @@ REG LOAD HKLM\DEFAULT C:\Users\Default\NTUSER.DAT
 reg add "HKLM\DEFAULT\Software\Classes\CLSID{018D5C66-4533-4307-9B53-224DE2ED1FE6}" /v System.IsPinnedToNameSpaceTree /t REG_DWORD /d 0 /f     
 reg add "HKLM\DEFAULT\Software\Classes\Wow6432Node\CLSID{018D5C66-4533-4307-9B53-224DE2ED1FE6}" /v System.IsPinnedToNameSpaceTree /t REG_DWORD /d 0 /f 
 
-# Remove OneDrive
+# Remove OneDrive setup
 reg delete  "HKLM\DEFAULT\Software\Microsoft\Windows\CurrentVersion\Run" /v OneDrive /f
 reg delete  "HKLM\DEFAULT\Software\Microsoft\Windows\CurrentVersion\Run" /v OneDriveSetup /f
 
