@@ -4,12 +4,12 @@ $WebClient.DownloadFile("$puppetagentx64_download_path","C:\puppet-agent_x64.msi
 
 Start-Process msiexec.exe -Wait -ArgumentList "/qn /norestart /i C:\puppet-agent_x64.msi"
 Stop-Service -Name 'puppet'
-Set-Service -Name 'puppet' -StartupType disabled
+Remove-Item -Path "C:\puppet-agent_x64.msi"
 
-
-# C:\ProgramData\PuppetLabs\puppet\etc\puppet.conf
-# [main]
-# server=puppet
-# environment=environment
-# autoflush=true
-# manage_internal_file_permissions=false
+Set-Content -Path C:\ProgramData\PuppetLabs\puppet\etc\puppet.conf -Value '
+[main]
+server=puppet
+environment=environment
+autoflush=true
+manage_internal_file_permissions=false
+'
