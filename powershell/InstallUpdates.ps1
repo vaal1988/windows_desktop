@@ -22,20 +22,25 @@ $WinUpdates = [ordered]@{
 
 }
 
-$WebClient = New-Object System.Net.WebClient
+
+Stop-Service wuauserv
+Set-Service vss -StartupType Disabled
+Stop-Service vss
+
 
 foreach ($KB in $WinUpdates.GetEnumerator()) {
   
   Write-Host "downloading $($KB.Name)"
-  $WebClient.DownloadFile("$($KB.Value)","C:\install\$(Split-Path $($KB.Value) -Leaf)")  
+  (New-Object System.Net.WebClient).DownloadFile("$($KB.Value)","C:\install\$(Split-Path $($KB.Value) -Leaf)")  
   
   Write-Host "installing $($KB.Name)"
-  Start-Process "C:\install\$(Split-Path $($KB.Value) -Leaf)" -Wait -ArgumentList "/quiet /norestart"
-  
+  Start-Process wusa -Wait -ArgumentList "C:\install\$(Split-Path $($KB.Value) -Leaf) /quiet /norestart"
 }
 
 
-
+Set-Service vss -StartupType Automatic
+Start-Service ServiceNvssame
+Start-Service wuauserv
 
 
 
