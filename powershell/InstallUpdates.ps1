@@ -2,7 +2,11 @@
 
 
 if (!(Test-Path C:\install)) { 
+
+  Write-Host "Creating filder"
   New-Item -ItemType Directory -Force -Path C:\install 
+  Write-Host ""
+  
 }
 
 $WinUpdates = [ordered]@{ 
