@@ -1,4 +1,4 @@
-powershell.exe -NoProfile -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/vaal1988/windows_desktop/main/powershell/InstallUpdates.ps1'))"
+# powershell.exe -NoProfile -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/vaal1988/windows_desktop/main/powershell/InstallUpdates.ps1'))"
 
 
 if (!(Test-Path C:\install)) { 
