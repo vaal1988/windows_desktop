@@ -28,5 +28,7 @@ foreach ($KB in $WinUpdates.GetEnumerator()) {
 
   Write-Host "downloading $($KB.Name)"
   $WebClient.DownloadFile("$($KB.Value)","C:\install\$(Split-Path $($KB.Value) -Leaf)")  
-    
+
+  # Start-Process "C:\install\Win7AndW2K8R2-KB3191566-x64.msu" -Wait -ArgumentList "/quiet /norestart"
+
 }
