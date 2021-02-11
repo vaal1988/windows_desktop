@@ -1,7 +1,7 @@
 # powershell.exe -NoProfile -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/vaal1988/windows_desktop/main/powershell/InstallUpdates.ps1'))"
 
 
-if (!(Test-Path C:\install)) { 
+if (!(Test-Path C:\install)) {
 
   Write-Host "Creating filder"
   New-Item -ItemType Directory -Force -Path C:\install 
@@ -20,15 +20,22 @@ $WinUpdates = [ordered]@{
   # Накопительное обновление для Windows 10 Version 20H2 для систем на базе процессоров x64, 2021 02 (KB4601319)
   KB4601319 = "http://download.windowsupdate.com/d/msdownload/update/software/secu/2021/02/windows10.0-kb4601319-x64_fa56d86b14e97133976a808e521f891ee180e101.msu"
 
- }
+}
 
 $WebClient = New-Object System.Net.WebClient
 
 foreach ($KB in $WinUpdates.GetEnumerator()) {
-
+  
   Write-Host "downloading $($KB.Name)"
   $WebClient.DownloadFile("$($KB.Value)","C:\install\$(Split-Path $($KB.Value) -Leaf)")  
-
-  # Start-Process "C:\install\Win7AndW2K8R2-KB3191566-x64.msu" -Wait -ArgumentList "/quiet /norestart"
-
+  
+  Write-Host "installing $($KB.Name)"
+  Start-Process "C:\install\$(Split-Path $($KB.Value) -Leaf)" -Wait -ArgumentList "/quiet /norestart"
+  
 }
+
+
+
+
+
+
