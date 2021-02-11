@@ -3,7 +3,7 @@
 
 if (!(Test-Path C:\install)) {
 
-  Write-Host "Creating filder"
+  Write-Host "Creating folder"
   New-Item -ItemType Directory -Force -Path C:\install 
   Write-Host ""
   
