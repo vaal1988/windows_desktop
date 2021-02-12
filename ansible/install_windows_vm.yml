@@ -25,10 +25,23 @@
       state: directory
       mode: '0755'
 
-  - ansible.posix.mount:
-      src: "/var/lib/libvirt/images/audit_mode_unattend.img"
-      path: "/media/floppy"
-      state: remounted
+  - name: mount
+    mount:
+      src: /var/lib/libvirt/images/audit_mode_unattend.img
+      path: /media/floppy
+      state: mounted
+
+  - name: download autounattend.xml 
+    get_url:
+      url: https://raw.githubusercontent.com/vaal1988/windows_desktop/main/unattend/audit_mode.xml
+      dest: /media/floppy/autounattend.xml 
+      mode: '0755'
+
+  - name: ummount
+    mount:
+      src: /var/lib/libvirt/images/audit_mode_unattend.img
+      path: /media/floppy
+      state: absent
 
 
 #  - name: install vm 
