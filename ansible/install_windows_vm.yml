@@ -40,18 +40,14 @@
       state: absent
 
 
-#  - name: install vm 
-#    shell: |
-#      sudo virt-install \
-#      --hvm \
-#      --name win10 \
-#      --os-variant win10 \
-#      --vcpu 2 \
-#      --ram 4096 \
-#      --graphics vnc \
-#      --disk path=/var/lib/libvirt/images/win10.qcow2,size=70 \
-#      --disk path=/var/lib/libvirt/images/audit_mode_unattend.img,device=floppy \
-#      --cdrom=/var/lib/libvirt/images/Win10_20H2_v2_English_x64.iso \
-#      --boot hd,cdrom \
-#      --network network=default \
-#      --noautoconsole
+  - name: install vm 
+    shell: |
+      virt-install \
+      --hvm --graphics vnc \
+      --name win10 --os-variant win10 \
+      --vcpu 2 --ram 4096 \
+      --disk path=/var/lib/libvirt/images/win10.qcow2,size=70 \
+      --disk path=/var/lib/libvirt/images/audit_mode_unattend.img,device=floppy \
+      --cdrom=/var/lib/libvirt/images/Win10_20H2_v2_English_x64.iso \
+      --network network=default \
+      --boot hd,cdrom --noautoconsole
