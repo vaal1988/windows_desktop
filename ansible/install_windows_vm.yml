@@ -26,12 +26,8 @@
       mode: '0755'
 
   - name: mount
-    mount:
-      src: /var/lib/libvirt/images/audit_mode_unattend.img
-      path: /media/floppy
-      fstype: msdos
-      state: mounted
-
+    shell: sudo mount -o loop /var/lib/libvirt/images/audit_mode_unattend.img /media/floppy/
+    
   - name: download autounattend.xml 
     get_url:
       url: https://raw.githubusercontent.com/vaal1988/windows_desktop/main/unattend/audit_mode.xml
@@ -40,7 +36,6 @@
 
   - name: ummount
     mount:
-      src: /var/lib/libvirt/images/audit_mode_unattend.img
       path: /media/floppy
       state: absent
 
