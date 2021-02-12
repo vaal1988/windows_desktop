@@ -25,10 +25,9 @@
       state: directory
       mode: '0755'
 
-  - name: mount disket
-    ansible.posix.mount:
-      src: /var/lib/libvirt/images/audit_mode_unattend.img
-      path: /media/floppy
+  - ansible.posix.mount:
+      src: "/var/lib/libvirt/images/audit_mode_unattend.img"
+      path: "/media/floppy"
       state: remounted
 
 
