@@ -35,10 +35,7 @@
       mode: '0755'
 
   - name: ummount
-    mount:
-      path: /media/floppy
-      state: absent
-
+    shell: umount /media/floppy/
 
   - name: install vm 
     shell: |
