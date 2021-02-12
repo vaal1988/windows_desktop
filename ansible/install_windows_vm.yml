@@ -1,0 +1,12 @@
+---
+- name: install windows vm
+  hosts: all
+  become: yes
+
+  tasks:
+
+  - name: Download iso , using https://tb.rg-adguard.net/
+    get_url:
+      url: https://tb.rg-adguard.net/dl.php?go=659a4291
+      dest: /var/lib/libvirt/images/Win10_20H2_v2_English_x64.iso
+      mode: '0755'
