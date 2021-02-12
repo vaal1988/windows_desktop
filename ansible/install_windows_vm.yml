@@ -26,7 +26,7 @@
       mode: '0755'
 
   - name: mount
-    shell: sudo mount -o loop /var/lib/libvirt/images/audit_mode_unattend.img /media/floppy/
+    shell: mount -o loop /var/lib/libvirt/images/audit_mode_unattend.img /media/floppy/
     
   - name: download autounattend.xml 
     get_url:
