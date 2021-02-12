@@ -5,8 +5,46 @@
 
   tasks:
 
-  - name: Download iso , using https://tb.rg-adguard.net/
+  - name: download iso , using https://tb.rg-adguard.net/
     get_url:
       url: https://tb.rg-adguard.net/dl.php?go=659a4291
       dest: /var/lib/libvirt/images/Win10_20H2_v2_English_x64.iso
       mode: '0755'
+
+  - name: delete disket if exist
+    file:
+      state: absent
+      path: "/var/lib/libvirt/images/audit_mode_unattend.img"
+
+  - name: create disket
+    shell: mkfs.msdos -C /var/lib/libvirt/images/audit_mode_unattend.img 1440
+
+  - name: create a directory /media/floppy , if it does not exist
+    ansible.builtin.file:
+      path: /media/floppy
+      state: directory
+      mode: '0755'
+
+  - name: mount disket
+    ansible.posix.mount:
+      src: /var/lib/libvirt/images/audit_mode_unattend.img
+      path: /media/floppy
+      state: remounted
+
+
+
+#  - name: install vm 
+#    shell: |
+#      sudo virt-install \
+#      --hvm \
+#      --name win10 \
+#      --os-variant win10 \
+#      --vcpu 2 \
+#      --ram 4096 \
+#      --graphics vnc \
+#      --disk path=/var/lib/libvirt/images/win10.qcow2,size=70 \
+#      --disk path=/var/lib/libvirt/images/audit_mode_unattend.img,device=floppy \
+#      --cdrom=/var/lib/libvirt/images/Win10_20H2_v2_English_x64.iso \
+#      --boot hd,cdrom \
+#      --network network=default \
+#      --noautoconsole
