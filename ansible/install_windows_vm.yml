@@ -29,6 +29,7 @@
     mount:
       src: /var/lib/libvirt/images/audit_mode_unattend.img
       path: /media/floppy
+      fstype: msdos
       state: mounted
 
   - name: download autounattend.xml 
