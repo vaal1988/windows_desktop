@@ -32,7 +32,6 @@
       state: remounted
 
 
-
 #  - name: install vm 
 #    shell: |
 #      sudo virt-install \
