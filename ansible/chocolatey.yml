@@ -2,8 +2,4 @@
   win_chocolatey:
     name: wget
     state: present
-
-- name: install firefox
-  win_chocolatey:
-    name: firefox
-    state: present
+    
