@@ -79,6 +79,7 @@
       msg: "{{ win10ip.stdout }}"
 
 - hosts: 127.0.0.1
+  gather_facts: no
   vars:
     ansible_host: "{{ win10ip.stdout }}"
     ansible_port: 5986
