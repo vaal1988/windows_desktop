@@ -100,7 +100,7 @@
   - name: ping
     win_ping:
 
-  - include: ansible/chocolatey.yml
+  - include: chocolatey.yml
 
 
 # install updates
