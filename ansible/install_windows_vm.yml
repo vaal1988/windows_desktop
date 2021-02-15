@@ -67,6 +67,9 @@
       name: win10
       state: running
 
+  - pause:
+      minutes: 10
+
   - name: get ip of win10 vm
     shell: virsh domifaddr win10 | grep ipv4 | awk  '{print $4}' | sed -r 's/\/.+//'
     register: win10ip
@@ -74,9 +77,6 @@
   - name: show win10 ip                 
     debug:
       msg: "{{ win10ip.stdout }}"
-
-  - pause:
-      minutes: 5
 
 - hosts: 127.0.0.1
   vars:
