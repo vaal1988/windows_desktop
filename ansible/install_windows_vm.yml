@@ -100,6 +100,12 @@
   - name: ping
     win_ping:
 
-
+  - include: InstallUpdates.yml
   - include: Chocolatey.yml
   - include: KeyboardLayoutPreload.yml
+  
+  
+  
+  
+  
+  
