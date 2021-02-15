@@ -1,6 +1,6 @@
 ---
-- name: install windows vm
-  hosts: all
+- hosts: 127.0.0.1
+  connection: local
   become: yes
 
   tasks:
@@ -66,3 +66,34 @@
     virt:
       name: win10
       state: running
+
+  - name: get ip of win10 vm
+    shell: virsh domifaddr win10 | grep ipv4 | awk  '{print $4}' | sed -r 's/\/.+//'
+    register: win10ip
+
+  - name: show win10 ip                 
+    debug:
+      msg: "{{ win10ip.stdout }}"
+
+  - pause:
+      minutes: 5
+
+- hosts: 127.0.0.1
+  vars:
+    ansible_host: "{{ win10ip.stdout }}"
+    ansible_port: 5986
+    ansible_connection: winrm
+    ansible_winrm_server_cert_validation: ignore
+    ansible_winrm_transport: ntlm
+    ansible_winrm_scheme: https
+    ansible_user: Admin
+    ansible_password: password
+
+  tasks:
+
+  - name: wait for system to become reachable over WinRM
+    wait_for_connection:
+      timeout: 900
+
+  - name: ping
+    win_ping:
