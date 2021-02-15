@@ -48,3 +48,21 @@
       --cdrom=/var/lib/libvirt/images/Win10_20H2_v2_English_x64.iso \
       --network network=default \
       --boot hd,cdrom --noautoconsole
+
+  - name: loop until win10 vm will be stopped during install
+    virt:
+      name: win10
+      command: status
+    register: win10_status
+    until: win10_status.status == "shutdown"
+    retries: 10
+    delay: 120
+
+  - name: Show all the hosts in the current play
+    debug:
+      msg: "{{ win10_status }}"
+
+  - name: start win10
+    virt:
+      name: win10
+      state: running
