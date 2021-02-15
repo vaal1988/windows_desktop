@@ -58,7 +58,7 @@
     retries: 10
     delay: 120
 
-  - name: Show all the hosts in the current play
+  - name: show win10 vm status                 
     debug:
       msg: "{{ win10_status }}"
 
