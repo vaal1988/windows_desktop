@@ -4,6 +4,6 @@
     path: HKLM:\ANSIBLE\SOFTWARE\Microsoft\Windows\CurrentVersion\RunOnce
     name: LanguageList
     data: powershell.exe -command "Set-WinUserLanguageList -LanguageList en-US, ru, uk -Force"
-    type: str
+    type: string
     state: present
     hive: C:\Users\Default\NTUSER.dat
