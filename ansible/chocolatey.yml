@@ -1,0 +1,6 @@
+
+
+- name: install wget
+  win_chocolatey:
+    name: googlechrome
+    state: present
