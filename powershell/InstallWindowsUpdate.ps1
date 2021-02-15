@@ -4,4 +4,4 @@ Set-ExecutionPolicy Bypass -Scope Process -Force  # The Process scope only affec
 Import-Module PSWindowsUpdate
 Add-WUServiceManager -ServiceID "7971f918-a847-4430-9279-4a52d1efe18d" -Confirm:$false
 
-Install-WindowsUpdate -MicrosoftUpdate -AcceptAll -IgnoreReboot
+# Install-WindowsUpdate -MicrosoftUpdate -AcceptAll -IgnoreReboot
