@@ -103,7 +103,7 @@
 
   - name: install veracrypt
     win_chocolatey:
-      name: veracrypt
+      name: googlechrome
       state: present
 
 
