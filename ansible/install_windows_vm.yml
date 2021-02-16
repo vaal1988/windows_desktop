@@ -100,16 +100,15 @@
   - name: ping
     win_ping:
 
-#  - include: InstallUpdates.yml
-#  - include: InstallUpdates.yml
-#  - include: InstallUpdates.yml
+
+  - include: InstallUpdates.yml
+  - include: InstallUpdates.yml
+  - include: InstallUpdates.yml
   
   - include: LayoutModification.yml
   - include: Chocolatey.yml
   - include: KeyboardLayoutPreload.yml
-  
-  
-  
+  - include: Desktop.yml
   
   
   
