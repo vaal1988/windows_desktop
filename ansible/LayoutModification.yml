@@ -1,0 +1,4 @@
+- name: Download LayoutModification.xml
+  win_get_url:
+    url: https://raw.githubusercontent.com/vaal1988/windows_desktop/main/layoutmodification/LayoutModification.xml
+    dest: C:\Users\Default\AppData\Local\Microsoft\Windows\Shell\LayoutModification.xml
