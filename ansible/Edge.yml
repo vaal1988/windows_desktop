@@ -1,0 +1,11 @@
+- name: Disable DisableEdgeDesktopShortcutCreation
+  win_regedit:
+    path: HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer
+    name: DisableEdgeDesktopShortcutCreation
+    data: 1
+    type: dword
+
+- name: Remove Microsoft Edge.lnk
+  win_file:
+    path: C:\Users\Public\Desktop\Microsoft Edge.lnk
+    state: absent
