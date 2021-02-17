@@ -2,3 +2,12 @@
   win_get_url:
     url: https://raw.githubusercontent.com/vaal1988/windows_desktop/main/layoutmodification/LayoutModification.xml
     dest: C:\Users\Default\AppData\Local\Microsoft\Windows\Shell\LayoutModification.xml
+
+- name: NoPinningStoreToTaskbar
+  win_regedit:
+    path: HKLM:\ANSIBLE\Software\Policies\Microsoft\Windows\Explorer
+    name: NoPinningStoreToTaskbar
+    data: 1
+    type: dword
+    state: present
+    hive: C:\Users\Default\NTUSER.dat
