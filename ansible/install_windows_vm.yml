@@ -101,9 +101,9 @@
     win_ping:
 
 
-  - include: InstallUpdates.yml
-  - include: InstallUpdates.yml
-  - include: InstallUpdates.yml
+#  - include: InstallUpdates.yml
+#  - include: InstallUpdates.yml
+#  - include: InstallUpdates.yml
   
   - include: LayoutModification.yml
   - include: Chocolatey.yml
