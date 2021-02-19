@@ -101,7 +101,7 @@
   - name: ping
     win_ping:
 
-
+  - include: SMB1.yml
   - include: InstallUpdates.yml
   - include: InstallUpdates.yml
   - include: InstallUpdates.yml
@@ -111,5 +111,5 @@
   - include: KeyboardLayoutPreload.yml
   - include: Desktop.yml
   - include: Remove-AppxPackage.yml
-  
+  - include: ConsumerFeatures.yml
   

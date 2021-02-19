@@ -41,5 +41,3 @@ foreach ($KB in $WinUpdates.GetEnumerator()) {
 Set-Service vss -StartupType Automatic
 Start-Service vss
 Start-Service wuauserv
-
-

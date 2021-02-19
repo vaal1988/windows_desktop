@@ -4,6 +4,8 @@ Get-ScheduledTask -TaskName 'OneDrive Standalone Update*' | Disable-ScheduledTas
 # Save documents to OneDrive by default
 reg add "HKLM\Software\Policies\Microsoft\Windows\OneDrive" /v DisableLibrariesDefaultSaveToOneDrive /t REG_DWORD /d 0 /f
 
+
+
 REG LOAD HKLM\DEFAULT C:\Users\Default\NTUSER.DAT
 
 # Remove OneDrive Icon from Navigation Pane
