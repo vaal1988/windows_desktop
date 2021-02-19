@@ -112,4 +112,4 @@
   - include: Desktop.yml
   - include: Remove-AppxPackage.yml
   - include: ConsumerFeatures.yml
-  
+  - include: OneDrive.yml
