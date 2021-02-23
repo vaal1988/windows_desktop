@@ -38,12 +38,14 @@
     path: HKLM:\ANSIBLE\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager\Subscriptions
     state: absent
     delete_key: yes
+    hive: C:\Users\Default\NTUSER.dat
 
 - name: Remove SuggestedApps HKLM
   win_regedit:
     path: HKLM:\ANSIBLE\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager\SuggestedApps
     state: absent
     delete_key: yes
+    hive: C:\Users\Default\NTUSER.dat
 
 # for default user
 
