@@ -16,7 +16,7 @@
 
 - name: DisableWindowsSpotlightFeatures
   win_regedit:
-    path: 'HKLM:\DEFAULT\Software\Classes\CLSID{018D5C66-4533-4307-9B53-224DE2ED1FE6}'
+    path: 'HKLM:\ANSIBLE\Software\Classes\CLSID{018D5C66-4533-4307-9B53-224DE2ED1FE6}'
     name: System.IsPinnedToNameSpaceTree
     data: 0
     type: dword
@@ -24,7 +24,7 @@
 
 - name: DisableWindowsSpotlightFeatures Wow6432Node
   win_regedit:
-    path: 'HKLM:\DEFAULT\Software\Classes\Wow6432Node\CLSID{018D5C66-4533-4307-9B53-224DE2ED1FE6}'
+    path: 'HKLM:\ANSIBLE\Software\Classes\Wow6432Node\CLSID{018D5C66-4533-4307-9B53-224DE2ED1FE6}'
     name: System.IsPinnedToNameSpaceTree
     data: 0
     type: dword
@@ -34,14 +34,14 @@
 
 - name: Remove OneDrive Run
   win_regedit:
-    path: HKLM:\DEFAULT\Software\Microsoft\Windows\CurrentVersion\Run
+    path: HKLM:\ANSIBLE\Software\Microsoft\Windows\CurrentVersion\Run
     name: OneDrive
     state: absent
     hive: C:\Users\Default\NTUSER.dat
 
 - name: Remove OneDriveSetup Run
   win_regedit:
-    path: HKLM:\DEFAULT\Software\Microsoft\Windows\CurrentVersion\Run
+    path: HKLM:\ANSIBLE\Software\Microsoft\Windows\CurrentVersion\Run
     name: OneDriveSetup
     state: absent
     hive: C:\Users\Default\NTUSER.dat
